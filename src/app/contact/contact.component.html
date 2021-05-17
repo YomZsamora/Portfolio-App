@@ -1,0 +1,27 @@
+<h1>Contact Me</h1>
+<div>
+	<form (ngSubmit)='submitMessage()'>
+		<p>Please add a comment here.</p>
+		<input type="text" name="name" autocomplete="off" placeholder="Enter your name ..." [(ngModel)]="contactName" class="form-control mb20">
+		<input type="text" name="email" autocomplete="off" placeholder="Enter your Email..." [(ngModel)]="contactEmail"  class="form-control mb20">
+		<textarea class="form-control mb20" name="messages" id="" cols="30" rows="10" type="text" [(ngModel)]="contactMessage" autocomplete="off"></textarea>
+		<button type="submit" class="btn btn-outline-success btn-lg">SUBMIT!</button>
+	</form>
+	<hr>
+	<div>
+		<p class="margin-none">Name: <span>{{contactName}}</span></p>
+		<p class="margin-none">Email: <span>{{contactEmail}}</span></p>
+		<p class="margin-none"> {{contactMessage}} </p>
+	</div>
+	<hr>
+	<div>
+		<div *ngFor='let message of messages'>
+			<h5 class="margin-none"> {{message.contactName}} </h5> 
+			<p class="margin-none"> {{message.contactEmail}} </p>
+			<small class="margin-none"> {{message.contactMessage}} </small>
+		</div>
+	</div>
+
+
+
+</div>

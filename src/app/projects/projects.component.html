@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-md-6">
+		<h1>My Projects</h1>
+		<div *ngFor='let project of projects; let i = index' class="mb20">
+			<h5 class="margin-none">{{project.title}}</h5>
+			<p class="margin-none">{{project.description}} </p>
+			<a (click)='showDetails(i)' class="btn btn-success btn-sm mb20">Show Project Details</a>
+			<app-project-details *ngIf="project.showProjectDetails" [project]='project' (deleteProject)='deleteThisProject($event, i)' ></app-project-details>
+		</div>
+		<div *ngIf='projects.length < 1' class="alert alert-warning">No Projects in Archive.</div>
+	</div>
+	<div class="col-md-6">
+		<app-contact></app-contact>
+	</div>
+</div> 
