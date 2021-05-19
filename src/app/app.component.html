@@ -1,10 +1,10 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-5">
-			<app-about></app-about>
-		</div>
-		<div class="col-md-7">
-			<app-projects></app-projects>
-		</div>
+	<div class="co md-6">
+		<p>Welcome to my Portfolio. What is it you wanna see?</p>
+		<a class="btn btn-outline-warning btn-sm" routerLink='/project'>My Projects</a>
+		<a class="btn btn-outline-warning btn-sm" routerLink='/about'>About Me</a>
+		<a class="btn btn-outline-warning btn-sm" routerLink='/gitForm'>Share Git Username</a>
+		<a class="btn btn-outline-warning btn-sm" routerLink='/gitResults'>See the Results!</a>
+		<router-outlet></router-outlet>
 	</div>
 </div>
