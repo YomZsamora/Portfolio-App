@@ -1,4 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
+import { Quote } from '../quote-class/quote';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-about',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  quote: Quote;
 
-  ngOnInit(): void {
+  constructor(private http: HttpClient) { 
   }
 
+  ngOnInit()  {
+    interface ApiResponse {
+      author: string;
+      quote: string;
+    }
+    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(response => {
+        this.quote = new Quote(response.author, response.quote);
+    });
+
+    
+  }
 }
